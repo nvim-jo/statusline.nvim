@@ -13,7 +13,7 @@ M.init = function(self, options)
   if not self.options.icon then
     self.options.icon = {
       '',
-      color = { fg = "#a6e3a1" }
+      color = { fg = "#A6E3A1" }
     }
   end
   modules.git_branch.init()

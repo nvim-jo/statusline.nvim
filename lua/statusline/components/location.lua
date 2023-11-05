@@ -3,7 +3,7 @@
 local function location()
   local line = vim.fn.line('.')
   local col = vim.fn.virtcol('.')
-  return string.format('%3d:%-2d', line, col)
+  return string.format('Ln %d, Col %d', line, col)
 end
 
 return location

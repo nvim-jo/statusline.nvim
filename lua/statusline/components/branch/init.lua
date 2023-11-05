@@ -11,7 +11,10 @@ local modules = require('statusline_require').lazy_require {
 M.init = function(self, options)
   M.super.init(self, options)
   if not self.options.icon then
-    self.options.icon = '' -- e0a0
+    self.options.icon = {
+      '',
+      color = { fg = "#a6e3a1" }
+    }
   end
   modules.git_branch.init()
 end

@@ -11,6 +11,7 @@ local default_options = {
   colored = true,
   icon_only = false,
   capitalize = true,
+  text_only = false,
 }
 
 local function capitalizeFirstLetter(str)
@@ -80,6 +81,8 @@ function M:apply_icon()
 
   if self.options.icon_only then
     self.status = icon
+  elseif self.options.text_only then
+    self.status = self.status
   elseif type(self.options.icon) == 'table' and self.options.icon.align == 'right' then
     self.status = self.status .. ' ' .. icon
   else

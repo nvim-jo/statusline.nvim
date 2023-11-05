@@ -10,11 +10,25 @@ local M = statusline_require.require('statusline.component'):extend()
 local default_options = {
   colored = true,
   icon_only = false,
+  capitalize = true,
 }
+
+local function capitalizeFirstLetter(str)
+  -- Check if the string is not empty
+  if #str > 0 then
+      -- Capitalize the first letter and make the rest lowercase
+      return str:sub(1, 1):upper() .. str:sub(2):lower()
+  else
+      return str
+  end
+end
 
 function M:init(options)
   M.super.init(self, options)
   self.options = vim.tbl_deep_extend('keep', self.options or {}, default_options)
+  if self.options.capitalize then
+    self.options.fmt = capitalizeFirstLetter
+  end 
   self.icon_hl_cache = {}
 end
 
